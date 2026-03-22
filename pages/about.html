@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>About | Akshat Vyavahare</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;600;700;800;900&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../css/style.css"/>
+  <style>
+    .skills-cols { display: grid; grid-template-columns: repeat(3,1fr); gap: 40px 32px; margin-top: 24px; }
+    .sk-cat { font-family: var(--mono); font-size: .58rem; font-weight: 400; letter-spacing: .18em; text-transform: uppercase; color: var(--fg-dim); margin-bottom: 14px; }
+    .learn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 24px; }
+    .learn-card { border: 1px solid var(--divider); padding: 24px 22px; transition: background .2s; }
+    .learn-card:hover { background: rgba(255,255,255,.04); }
+    body.light .learn-card:hover { background: rgba(0,0,0,.04); }
+    .learn-lbl { font-family: var(--mono); font-size: .56rem; font-weight: 400; letter-spacing: .18em; text-transform: uppercase; color: #e8b84b; margin-bottom: 8px; }
+    .learn-title { font-size: .9rem; font-weight: 600; margin-bottom: 7px; }
+    .cert-row { display: grid; grid-template-columns: repeat(4,1fr); gap: 2px; margin-top: 24px; }
+    .cert { border: 1px solid var(--divider); padding: 22px 20px; transition: background .2s; }
+    .cert:hover { background: rgba(255,255,255,.04); }
+    body.light .cert:hover { background: rgba(0,0,0,.04); }
+    .cert-name { font-size: .82rem; font-weight: 600; margin-bottom: 5px; line-height: 1.3; }
+    .cert-by { font-family: var(--mono); font-size: .58rem; letter-spacing: .1em; text-transform: uppercase; color: var(--fg-dim); margin-bottom: 3px; }
+    .cert-date { font-family: var(--mono); font-size: .56rem; color: var(--fg-dim); }
+    @media(max-width:820px){
+      .skills-cols { grid-template-columns: 1fr; gap: 28px; }
+      .learn-grid { grid-template-columns: 1fr; }
+      .cert-row { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+<script src="../js/sidebar.js"></script>
+<div class="main">
+  <div class="pg" style="padding-top:72px;">
+
+    <div class="reveal">
+      <h1 style="font-weight:200;font-size:var(--h1-size);letter-spacing:.04em;line-height:1;margin-bottom:5px;">ABOUT</h1>
+      <p class="lbl" style="margin:0;">Experience · Skills · Certifications</p>
+    </div>
+
+    <!-- EXPERIENCE -->
+    <div class="sec-hd reveal">Full-Time</div>
+    <div class="tl">
+      <div class="tl-row reveal">
+        <div class="tl-date">Apr 2021 — Jan 2026</div>
+        <div>
+          <div class="tl-co">Lionbridge Technologies LLP</div>
+          <div class="tl-ro">Associate Project Manager · Team Lead, Localization</div>
+          <ul class="tl-bl">
+            <li>Managed $13M+ enterprise portfolio across 38+ global clients, 75+ languages — 99% on-time delivery, 59% gross margins.</li>
+            <li>Led and mentored 9 PMs &amp; Coordinators across governance, KPI alignment, and SLA adherence.</li>
+            <li>Built executive QBR/YBR dashboards consolidating delivery metrics and risk indicators across 38+ programs.</li>
+            <li>Deployed automation eliminating 5,200+ manual hours annually; led Azure DevOps enterprise integration.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tl-row reveal">
+        <div class="tl-date">Apr 2019 — Oct 2020</div>
+        <div>
+          <div class="tl-co">Gebbs HealthCare Solutions</div>
+          <div class="tl-ro">Sr. Accounts Receivable</div>
+          <ul class="tl-bl">
+            <li>SME supporting 4 teams (90+ employees). US healthcare AR and denial management across multiple payers.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tl-row reveal">
+        <div class="tl-date">Jul 2018 — Apr 2019</div>
+        <div>
+          <div class="tl-co">Teleperformance</div>
+          <div class="tl-ro">Sr. Accounts Receivable</div>
+          <ul class="tl-bl">
+            <li>Medical claims processing, denial management, and coordination with insurance carriers for US healthcare clients.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec-hd reveal">Consulting</div>
+    <div class="tl">
+      <div class="tl-row reveal">
+        <div class="tl-date">Oct 2025 — Present</div>
+        <div>
+          <div class="tl-co">Emeritus</div>
+          <div class="tl-ro">Consultant — Program Insights &amp; Quality Strategy</div>
+          <ul class="tl-bl">
+            <li>Analyzing program outputs for quality trends and SLA compliance. Standardising evaluation frameworks across global programs.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tl-row reveal">
+        <div class="tl-date">Apr 2019 — Apr 2021</div>
+        <div>
+          <div class="tl-co">Vitorini Clothing (Startup)</div>
+          <div class="tl-ro">Associate Project Manager · Business Analyst</div>
+          <ul class="tl-bl">
+            <li>Directed $1M annual project budgets. Used SQL for sales and inventory data extraction and validation. Built reporting dashboards.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec-hd reveal">Education</div>
+    <div class="tl">
+      <div class="tl-row reveal">
+        <div class="tl-date">MBA</div>
+        <div><div class="tl-co">NMIMS, Mumbai</div><div class="tl-ro">Master of Business Administration — Business Management</div></div>
+      </div>
+      <div class="tl-row reveal">
+        <div class="tl-date">BA</div>
+        <div><div class="tl-co">Mumbai University</div><div class="tl-ro">Bachelor of Arts — Psychology &amp; Education</div></div>
+      </div>
+    </div>
+
+    <!-- SKILLS -->
+    <div class="sec-hd reveal">Skills</div>
+    <div class="skills-cols reveal">
+      <div>
+        <div class="sk-cat">Program &amp; Project</div>
+        <div class="pills">
+          <span class="pill">Portfolio Management</span><span class="pill">Agile / Scrum</span>
+          <span class="pill">PMO Reporting</span><span class="pill">Risk &amp; Change Mgmt</span>
+          <span class="pill">Resource Planning</span>
+        </div>
+      </div>
+      <div>
+        <div class="sk-cat">Stakeholder &amp; Business</div>
+        <div class="pills">
+          <span class="pill">Client Management</span><span class="pill">Vendor Management</span>
+          <span class="pill">Executive Reporting</span><span class="pill">KPI Tracking</span>
+          <span class="pill">Financial Tracking</span>
+        </div>
+      </div>
+      <div>
+        <div class="sk-cat">Tools</div>
+        <div class="pills">
+          <span class="pill">JIRA</span><span class="pill">Azure DevOps</span>
+          <span class="pill">Power BI</span><span class="pill">Tableau</span>
+          <span class="pill">Excel (Advanced)</span><span class="pill">Python</span>
+          <span class="pill">SQL</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- DATA SKILLS -->
+    <div class="sec-hd reveal">Data Skills</div>
+    <div class="learn-grid reveal">
+      <div class="learn-card">
+        <div class="learn-lbl">Applied · Growing</div>
+        <div class="learn-title">SQL</div>
+        <div class="body-text" style="margin-bottom:14px;"><p>Applied at Vitorini for data extraction and validation. Working knowledge: SELECT, WHERE, JOINs, GROUP BY, aggregations. Focus on real analytical queries on business datasets.</p></div>
+        <div class="pills"><span class="pill">SELECT / WHERE</span><span class="pill">JOINs</span><span class="pill">GROUP BY</span><span class="pill">Aggregations</span></div>
+      </div>
+      <div class="learn-card">
+        <div class="learn-lbl">Applied · Growing</div>
+        <div class="learn-title">Power BI</div>
+        <div class="body-text" style="margin-bottom:14px;"><p>Built KPI dashboards and executive reports throughout career. Now deepening — DAX, data modelling, analytical dashboard design. Complemented by Tableau and Advanced Excel.</p></div>
+        <div class="pills"><span class="pill">Dashboard Design</span><span class="pill">DAX</span><span class="pill">KPI Reporting</span><span class="pill">Data Storytelling</span></div>
+      </div>
+    </div>
+
+    <!-- CERTIFICATIONS -->
+    <div class="sec-hd reveal">Certifications</div>
+    <div class="cert-row reveal">
+      <div class="cert">
+        <span class="badge b-yellow" style="margin-bottom:10px;display:inline-block;">In Progress</span>
+        <div class="cert-name">Executive Certificate in Corporate Governance</div>
+        <div class="cert-by">Skill Arbitrage</div>
+        <div class="cert-date">Ongoing</div>
+      </div>
+      <div class="cert">
+        <span class="badge b-green" style="margin-bottom:10px;display:inline-block;">Certified</span>
+        <div class="cert-name">Certified Scrum Product Owner (CSPO)</div>
+        <div class="cert-by">Scrum Alliance</div>
+        <div class="cert-date">May 2024</div>
+      </div>
+      <div class="cert">
+        <span class="badge b-green" style="margin-bottom:10px;display:inline-block;">Certified</span>
+        <div class="cert-name">Management Consulting</div>
+        <div class="cert-by">GrowthSchool</div>
+        <div class="cert-date">July 2024</div>
+      </div>
+      <div class="cert">
+        <span class="badge b-green" style="margin-bottom:10px;display:inline-block;">Certified</span>
+        <div class="cert-name">Lean Six Sigma Green Belt</div>
+        <div class="cert-by">Simplilearn</div>
+        <div class="cert-date">March 2021</div>
+      </div>
+    </div>
+
+    <!-- DOWNLOAD CV -->
+    <div style="margin-top:48px;padding:28px 24px;border:1px solid var(--divider);display:flex;align-items:center;justify-content:space-between;" class="reveal">
+      <div>
+        <p style="font-size:.78rem;font-weight:600;letter-spacing:.03em;margin-bottom:4px;">Want the full CV?</p>
+        <p style="font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;color:var(--fg-dim);">PDF · Updated 2025</p>
+      </div>
+      <a href="#" style="background:var(--fg);color:var(--bg);font-family:var(--mono);font-size:.62rem;font-weight:400;letter-spacing:.18em;text-transform:uppercase;border:none;padding:12px 28px;text-decoration:none;transition:opacity .2s;" onmouseover="this.style.opacity='.8'" onmouseout="this.style.opacity='1'">DOWNLOAD CV</a>
+    </div>
+
+  </div>
+
+  <div class="bot-nav">
+    <a href="lab.html">THE LAB NOTES →</a>
+    <a href="contact.html">CONTACT →</a>
+  </div>
+</div>
+<script src="../js/main.js"></script>
+</body>
+</html>
