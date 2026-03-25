@@ -3,296 +3,180 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Project Folder Automation — Case Study | Akshat Vyavahare</title>
+  <title>Workflow Automation System — Case Study | Akshat Vyavahare</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;600;700;800;900&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="../css/style.css"/>
   <style>
+    /* ── CASE STUDY ── */
+    .cs-hero { padding: 72px 64px 56px 48px; border-bottom: 1px solid var(--divider); }
+    .cs-eyebrow { font-family: var(--mono); font-size:.64rem; letter-spacing:.22em; text-transform:uppercase; color:var(--fg-dim); margin-bottom:20px; }
+    .cs-title { font-size:clamp(2.2rem,4.5vw,5.2rem); font-weight:200; letter-spacing:.03em; line-height:1.05; margin-bottom:16px; }
+    .cs-title strong { font-weight:800; }
+    .cs-subtitle { font-size:.9rem; font-weight:300; color:var(--fg); opacity:.82; max-width:600px; line-height:1.75; }
 
-    /* ── CASE STUDY SPECIFIC ── */
-    .cs-hero {
-      padding: 72px 64px 60px 48px;
-      border-bottom: 1px solid var(--divider);
-    }
-    .cs-eyebrow {
-      font-family: var(--mono);
-      font-size: .62rem;
-      letter-spacing: .22em;
-      text-transform: uppercase;
-      color: var(--fg-dim);
-      margin-bottom: 20px;
-    }
-    .cs-title {
-      font-size: clamp(2rem, 4.5vw, 5rem);
-      font-weight: 200;
-      letter-spacing: .03em;
-      line-height: 1.05;
-      margin-bottom: 16px;
-    }
-    .cs-title strong { font-weight: 800; }
-    .cs-subtitle {
-      font-size: .92rem;
-      font-weight: 300;
-      color: var(--fg-dim);
-      max-width: 560px;
-      line-height: 1.7;
-    }
+    .impact-strip { display:grid; grid-template-columns:repeat(4,1fr); border-top:1px solid var(--divider); border-bottom:1px solid var(--divider); }
+    .is-cell { padding:32px 0 32px 48px; border-right:1px solid var(--divider); }
+    .is-cell:last-child { border-right:none; }
+    .is-num { font-size:clamp(1.8rem,3.5vw,3.8rem); font-weight:800; letter-spacing:-.04em; line-height:1; margin-bottom:6px; }
+    .is-lbl { font-family:var(--mono); font-size:.54rem; letter-spacing:.18em; text-transform:uppercase; color:var(--fg-dim); }
 
-    /* Impact strip — 4 numbers */
-    .impact-strip {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      border-top: 1px solid var(--divider);
-      border-bottom: 1px solid var(--divider);
-    }
-    .is-cell {
-      padding: 36px 0 36px 48px;
-      border-right: 1px solid var(--divider);
-    }
-    .is-cell:last-child { border-right: none; }
-    .is-num {
-      font-size: clamp(2.2rem, 4vw, 4rem);
-      font-weight: 800;
-      letter-spacing: -.04em;
-      line-height: 1;
-      margin-bottom: 6px;
-    }
-    .is-lbl {
-      font-family: var(--mono);
-      font-size: .54rem;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: var(--fg-dim);
-    }
+    /* ── INTERACTIVE HORIZONTAL FLOW ── */
+    .flow-section { padding:64px 48px; border-bottom:1px solid var(--divider); }
+    .flow-section-lbl { font-family:var(--mono); font-size:.62rem; letter-spacing:.22em; text-transform:uppercase; color:var(--fg-dim); margin-bottom:8px; }
+    .flow-section-title { font-size:clamp(1.2rem,2vw,1.8rem); font-weight:200; margin-bottom:40px; }
+    .flow-section-title strong { font-weight:700; }
 
-    /* Body grid */
-    .cs-body {
-      padding: 64px 64px 80px 48px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-    }
-    .cs-left {}
-    .cs-right {}
-
-    /* Section headers within body */
-    .cs-section-lbl {
-      font-family: var(--mono);
-      font-size: .6rem;
-      letter-spacing: .22em;
-      text-transform: uppercase;
-      color: var(--fg-dim);
-      margin: 40px 0 10px;
-      padding-bottom: 8px;
-      border-bottom: 1px solid var(--divider);
-    }
-    .cs-section-lbl:first-child { margin-top: 0; }
-
-    .cs-para {
-      font-size: .86rem;
-      font-weight: 300;
-      line-height: 1.92;
-      opacity: .78;
-      margin-bottom: 12px;
-    }
-
-    /* Flow diagram */
-    .flow {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-      margin-top: 4px;
-    }
-    .flow-step {
-      display: grid;
-      grid-template-columns: 40px 1fr;
-      gap: 16px;
-      align-items: start;
-      padding: 18px 20px 18px 0;
-      border-bottom: 1px solid var(--divider);
-      transition: background .2s;
-    }
-    .flow-step:last-child { border-bottom: none; }
-    .flow-step:hover { background: rgba(255,255,255,.03); }
-    body.light .flow-step:hover { background: rgba(0,0,0,.03); }
-    .flow-num {
-      font-family: var(--mono);
-      font-size: .62rem;
-      letter-spacing: .1em;
-      color: var(--fg-dim);
-      padding-top: 3px;
-      font-weight: 400;
-    }
-    .flow-content {}
-    .flow-title {
-      font-size: .88rem;
-      font-weight: 600;
-      margin-bottom: 3px;
-      letter-spacing: .01em;
-    }
-    .flow-desc {
-      font-size: .76rem;
-      font-weight: 300;
-      line-height: 1.7;
-      opacity: .65;
-    }
-
-    /* Before / After comparison */
-    .before-after {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2px;
-      margin-top: 4px;
-    }
-    .ba-col {
-      border: 1px solid var(--divider);
-      padding: 24px 22px;
-    }
-    .ba-heading {
-      font-family: var(--mono);
-      font-size: .58rem;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      margin-bottom: 16px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid var(--divider);
-    }
-    .ba-heading.before { color: #e87b7b; }
-    .ba-heading.after  { color: #6dbf7e; }
-    .ba-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    .ba-list li {
-      font-size: .78rem;
-      font-weight: 300;
-      line-height: 1.6;
-      opacity: .75;
-      padding-left: 14px;
+    /* Horizontal flow track */
+    .flow-track {
       position: relative;
-    }
-    .ba-list li::before { content: '—'; position: absolute; left: 0; color: var(--fg-dim); }
-
-    /* Stakeholder grid */
-    .stakeholder-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2px;
-      margin-top: 4px;
-    }
-    .sh-card {
-      border: 1px solid var(--divider);
-      padding: 20px 18px;
-      transition: background .2s;
-    }
-    .sh-card:hover { background: rgba(255,255,255,.04); }
-    body.light .sh-card:hover { background: rgba(0,0,0,.03); }
-    .sh-role {
-      font-size: .78rem;
-      font-weight: 700;
-      margin-bottom: 5px;
-      letter-spacing: .01em;
-    }
-    .sh-impact {
-      font-size: .72rem;
-      font-weight: 300;
-      line-height: 1.65;
-      opacity: .65;
-    }
-
-    /* Tech stack pills */
-    .tech-row {
       display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 4px;
-    }
-    .tech-pill {
-      font-family: var(--mono);
-      font-size: .6rem;
-      letter-spacing: .1em;
-      border: 1px solid var(--divider);
-      border-radius: 999px;
-      padding: 6px 14px;
-      color: var(--fg-dim);
-      transition: color .2s, border-color .2s;
-    }
-    .tech-pill:hover { color: var(--fg); border-color: var(--fg); }
-
-    /* Future enhancements */
-    .enhance-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
+      align-items: stretch;
       gap: 0;
-      margin-top: 4px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      scrollbar-width: none;
     }
-    .enhance-list li {
-      font-size: .82rem;
-      font-weight: 300;
-      line-height: 1.75;
-      opacity: .72;
-      padding: 13px 0;
-      border-bottom: 1px solid var(--divider);
-      display: flex;
-      align-items: baseline;
-      gap: 12px;
-    }
-    .enhance-list li:last-child { border-bottom: none; }
-    .enhance-num {
-      font-family: var(--mono);
-      font-size: .56rem;
-      color: var(--fg-dim);
-      flex-shrink: 0;
+    .flow-track::-webkit-scrollbar { display:none; }
+
+    /* Connector line running through all nodes */
+    .flow-track::before {
+      content: '';
+      position: absolute;
+      top: 36px;
+      left: 0; right: 0;
+      height: 1px;
+      background: var(--divider);
+      z-index: 0;
     }
 
-    /* Full-width role block */
-    .role-strip {
-      border: 1px solid var(--divider);
-      padding: 32px 28px;
-      margin-top: 4px;
-    }
-    .role-strip-title {
-      font-size: .92rem;
-      font-weight: 700;
-      letter-spacing: .02em;
-      margin-bottom: 16px;
-    }
-    .role-items {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px 32px;
-    }
-    .role-item {
-      font-size: .78rem;
-      font-weight: 300;
-      line-height: 1.6;
-      opacity: .72;
-      padding-left: 14px;
+    .flow-node {
       position: relative;
+      flex: 0 0 200px;
+      cursor: pointer;
+      z-index: 1;
     }
-    .role-item::before { content: '—'; position: absolute; left: 0; color: var(--fg-dim); }
 
-    /* Back link row */
-    .cs-nav-row {
-      padding: 0 64px 52px 48px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-top: 1px solid var(--divider);
+    /* Top dot */
+    .flow-dot {
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      border: 2px solid var(--fg-dim);
+      background: var(--bg);
+      margin: 30px auto 0;
+      transition: border-color .25s, background .25s, transform .25s;
+      position: relative;
+      z-index: 2;
     }
+    .flow-node.active .flow-dot,
+    .flow-node:hover .flow-dot {
+      border-color: var(--fg);
+      background: var(--fg);
+      transform: scale(1.4);
+    }
+
+    /* Connector arrow between nodes */
+    .flow-arrow {
+      position: absolute;
+      top: 29px;
+      right: -1px;
+      font-family: var(--mono);
+      font-size: .65rem;
+      color: var(--fg-dim);
+      z-index: 3;
+    }
+    .flow-node:last-child .flow-arrow { display: none; }
+
+    /* Card body */
+    .flow-card {
+      margin-top: 16px;
+      padding: 18px 16px;
+      border: 1px solid var(--divider);
+      transition: border-color .25s, background .25s;
+      min-height: 140px;
+    }
+    .flow-node.active .flow-card,
+    .flow-node:hover .flow-card {
+      border-color: var(--fg);
+      background: rgba(255,255,255,.04);
+    }
+    body.light .flow-node.active .flow-card,
+    body.light .flow-node:hover .flow-card { background: rgba(0,0,0,.04); }
+
+    .flow-card-label { font-family:var(--mono); font-size:.52rem; letter-spacing:.18em; text-transform:uppercase; color:var(--fg-dim); margin-bottom:8px; }
+    .flow-card-title { font-size:.82rem; font-weight:700; margin-bottom:6px; letter-spacing:.01em; }
+    .flow-card-desc { font-size:.72rem; font-weight:300; line-height:1.65; opacity:.8; }
+
+    /* Detail panel below flow */
+    .flow-detail {
+      margin-top: 24px;
+      border: 1px solid var(--divider);
+      padding: 28px 28px;
+      display: none;
+      animation: fadeSlide .25s ease;
+    }
+    .flow-detail.visible { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+    @keyframes fadeSlide { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+    .fd-label { font-family:var(--mono); font-size:.56rem; letter-spacing:.18em; text-transform:uppercase; color:var(--fg-dim); margin-bottom:8px; }
+    .fd-text { font-size:.8rem; font-weight:300; line-height:1.82; opacity:.88; }
+    .fd-tag-row { display:flex; flex-wrap:wrap; gap:6px; margin-top:12px; }
+    .fd-tag { font-family:var(--mono); font-size:.52rem; letter-spacing:.1em; border:1px solid var(--divider); border-radius:999px; padding:3px 10px; color:var(--fg-dim); }
+
+    /* ── BODY GRID ── */
+    .cs-body { padding:64px 64px 80px 48px; display:grid; grid-template-columns:1fr 1fr; gap:72px; }
+    .cs-section-lbl { font-family:var(--mono); font-size:.6rem; letter-spacing:.22em; text-transform:uppercase; color:var(--fg-dim); margin:40px 0 10px; padding-bottom:8px; border-bottom:1px solid var(--divider); }
+    .cs-section-lbl:first-child { margin-top:0; }
+    .cs-para { font-size:.86rem; font-weight:300; line-height:1.92; opacity:.92; margin-bottom:12px; }
+
+    /* Before/After */
+    .before-after { display:grid; grid-template-columns:1fr 1fr; gap:2px; margin-top:4px; }
+    .ba-col { border:1px solid var(--divider); padding:22px 20px; }
+    .ba-heading { font-family:var(--mono); font-size:.56rem; letter-spacing:.18em; text-transform:uppercase; margin-bottom:14px; padding-bottom:8px; border-bottom:1px solid var(--divider); }
+    .ba-heading.before { color:#e87b7b; } .ba-heading.after { color:#6dbf7e; }
+    .ba-list { list-style:none; display:flex; flex-direction:column; gap:8px; }
+    .ba-list li { font-size:.78rem; font-weight:300; line-height:1.6; opacity:.88; padding-left:14px; position:relative; }
+    .ba-list li::before { content:'—'; position:absolute; left:0; color:var(--fg-dim); }
+
+    /* Stakeholders */
+    .sh-grid { display:grid; grid-template-columns:1fr 1fr; gap:2px; margin-top:4px; }
+    .sh-card { border:1px solid var(--divider); padding:18px 16px; transition:background .2s; }
+    .sh-card:hover { background:rgba(255,255,255,.04); }
+    body.light .sh-card:hover { background:rgba(0,0,0,.04); }
+    .sh-role { font-size:.78rem; font-weight:700; margin-bottom:4px; }
+    .sh-impact { font-size:.72rem; font-weight:300; line-height:1.65; opacity:.82; }
+
+    /* Tech pills */
+    .tech-row { display:flex; flex-wrap:wrap; gap:8px; margin-top:4px; }
+    .tech-pill { font-family:var(--mono); font-size:.6rem; letter-spacing:.1em; border:1px solid var(--divider); border-radius:999px; padding:5px 13px; color:var(--fg-dim); transition:color .2s,border-color .2s; }
+    .tech-pill:hover { color:var(--fg); border-color:var(--fg); }
+
+    /* Future */
+    .enhance-list { list-style:none; display:flex; flex-direction:column; margin-top:4px; }
+    .enhance-list li { font-size:.82rem; font-weight:300; line-height:1.75; opacity:.88; padding:13px 0; border-bottom:1px solid var(--divider); display:flex; align-items:baseline; gap:12px; }
+    .enhance-list li:last-child { border-bottom:none; }
+    .enhance-num { font-family:var(--mono); font-size:.54rem; color:var(--fg-dim); flex-shrink:0; }
+
+    /* Role strip */
+    .role-strip { border:1px solid var(--divider); padding:28px 24px; margin-top:4px; }
+    .role-strip-title { font-size:.9rem; font-weight:700; margin-bottom:14px; }
+    .role-items { display:grid; grid-template-columns:1fr 1fr; gap:8px 28px; }
+    .role-item { font-size:.78rem; font-weight:300; line-height:1.6; opacity:.88; padding-left:14px; position:relative; }
+    .role-item::before { content:'—'; position:absolute; left:0; color:var(--fg-dim); }
+
+    .cs-nav-row { padding:0 64px 52px 48px; display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--divider); }
 
     @media(max-width:860px){
-      .cs-hero { padding: 40px 20px 48px; }
-      .impact-strip { grid-template-columns: 1fr 1fr; }
-      .is-cell { padding: 28px 0 28px 20px; }
-      .cs-body { grid-template-columns: 1fr; gap: 0; padding: 40px 20px 60px; }
-      .before-after { grid-template-columns: 1fr; }
-      .stakeholder-grid { grid-template-columns: 1fr; }
-      .role-items { grid-template-columns: 1fr; }
-      .cs-nav-row { padding: 24px 20px 48px; flex-direction: column; gap: 16px; align-items: flex-start; }
+      .cs-hero { padding:32px 20px 44px; }
+      .impact-strip { grid-template-columns:1fr 1fr; }
+      .is-cell { padding:24px 0 24px 20px; }
+      .flow-section { padding:44px 20px; }
+      .flow-node { flex:0 0 160px; }
+      .flow-detail.visible { grid-template-columns:1fr; gap:20px; }
+      .cs-body { grid-template-columns:1fr; gap:0; padding:40px 20px 60px; }
+      .before-after { grid-template-columns:1fr; }
+      .sh-grid { grid-template-columns:1fr; }
+      .role-items { grid-template-columns:1fr; }
+      .cs-nav-row { padding:24px 20px 48px; flex-direction:column; gap:16px; align-items:flex-start; }
     }
   </style>
 </head>
@@ -300,223 +184,272 @@
 <script src="../js/sidebar.js"></script>
 <div class="main">
 
-  <!-- BACK -->
   <a class="detail-back" href="../pages/works.html">&#8249; BACK TO WORKS</a>
 
   <!-- HERO -->
   <div class="cs-hero reveal">
-    <div class="cs-eyebrow">Case Study · Automation · Process Engineering</div>
-    <h1 class="cs-title">
-      Project Folder<br><strong>Automation System</strong>
-    </h1>
-    <p class="cs-subtitle">
-      How I automated a repetitive, error-prone manual workflow — eliminating 5,200+ hours of manual work annually across a global project management team.
-    </p>
+    <div class="cs-eyebrow">Case Study · Automation · System Design · 2022–2024</div>
+    <h1 class="cs-title">Workflow<br><strong>Automation System</strong></h1>
+    <p class="cs-subtitle">How I redesigned a global PM team's operational workflow — converting repeated human decision-making into structured system logic, eliminating 5,200+ hours of manual work annually.</p>
   </div>
 
-  <!-- IMPACT STRIP -->
+  <!-- IMPACT -->
   <div class="impact-strip reveal">
     <div class="is-cell">
       <div class="is-num"><span class="cu" data-t="5200" data-suf="+">0</span></div>
       <div class="is-lbl">Hours Saved / Year</div>
     </div>
     <div class="is-cell">
-      <div class="is-num">70<span style="font-size:.6em;font-weight:300;">–</span>90%</div>
+      <div class="is-num">70–90%</div>
       <div class="is-lbl">Manual Effort Reduced</div>
     </div>
     <div class="is-cell">
-      <div class="is-num"><span class="cu" data-t="0" data-suf="">0</span></div>
+      <div class="is-num">0</div>
       <div class="is-lbl">Folder Naming Errors</div>
     </div>
     <div class="is-cell">
-      <div class="is-num"><span class="cu" data-t="9">0</span></div>
+      <div class="is-num">9</div>
       <div class="is-lbl">Team Members Benefited</div>
     </div>
   </div>
 
-  <!-- MAIN BODY -->
+  <!-- ── INTERACTIVE HORIZONTAL FLOW ── -->
+  <div class="flow-section reveal">
+    <div class="flow-section-lbl">System Architecture</div>
+    <div class="flow-section-title">How the <strong>automation works</strong> — click any step to explore</div>
+
+    <div class="flow-track" id="flow-track">
+
+      <div class="flow-node active" data-step="0">
+        <div class="flow-dot"></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-card">
+          <div class="flow-card-label">Step 01</div>
+          <div class="flow-card-title">Trigger / Input</div>
+          <div class="flow-card-desc">Project name or source file reference provided</div>
+        </div>
+      </div>
+
+      <div class="flow-node" data-step="1">
+        <div class="flow-dot"></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-card">
+          <div class="flow-card-label">Step 02</div>
+          <div class="flow-card-title">Condition Mapping</div>
+          <div class="flow-card-desc">Request type identified, rules applied</div>
+        </div>
+      </div>
+
+      <div class="flow-node" data-step="2">
+        <div class="flow-dot"></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-card">
+          <div class="flow-card-label">Step 03</div>
+          <div class="flow-card-title">Decision Logic</div>
+          <div class="flow-card-desc">If/then logic replaces manual judgment</div>
+        </div>
+      </div>
+
+      <div class="flow-node" data-step="3">
+        <div class="flow-dot"></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-card">
+          <div class="flow-card-label">Step 04</div>
+          <div class="flow-card-title">Action Path</div>
+          <div class="flow-card-desc">Folder created, files downloaded &amp; moved</div>
+        </div>
+      </div>
+
+      <div class="flow-node" data-step="4">
+        <div class="flow-dot"></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-card">
+          <div class="flow-card-label">Step 05</div>
+          <div class="flow-card-title">Extraction</div>
+          <div class="flow-card-desc">Files unzipped, duplicates handled</div>
+        </div>
+      </div>
+
+      <div class="flow-node" data-step="5">
+        <div class="flow-dot"></div>
+        <div class="flow-card">
+          <div class="flow-card-label">Step 06</div>
+          <div class="flow-card-title">Output</div>
+          <div class="flow-card-desc">Ready workspace in &lt;1 min, zero errors</div>
+        </div>
+      </div>
+
+    </div><!-- /flow-track -->
+
+    <!-- Dynamic detail panel -->
+    <div class="flow-detail visible" id="flow-detail">
+      <!-- filled by JS -->
+    </div>
+  </div>
+
+  <!-- BODY -->
   <div class="cs-body">
-
-    <!-- LEFT COLUMN -->
-    <div class="cs-left">
-
-      <!-- Problem -->
+    <div>
       <div class="cs-section-lbl">The Problem</div>
-      <p class="cs-para">In a global project management environment handling hundreds of projects simultaneously, every new project triggered the same sequence of manual steps — repeated, without exception, by every Project Manager on the team.</p>
-      <p class="cs-para">Each project required manually creating a folder on the server, renaming it to match the project naming convention from the TMS (Translation Management System), downloading the source files, moving them into the correct directory, and then extracting the compressed files. Five steps. Every project. Every time.</p>
-      <p class="cs-para">This wasn't a minor inconvenience — it was a structural drain on the team's time. Multiply 15–20 minutes per project across hundreds of projects and a 9-person team, and the cost becomes significant. Beyond time, manual processes introduce errors: wrong folder names, files in the wrong directories, missed extractions. Each error created downstream delays.</p>
+      <p class="cs-para">In a global PM environment handling hundreds of projects simultaneously, every new project triggered the same five manual steps — repeated, without exception, by every PM on the team.</p>
+      <p class="cs-para">The root issue wasn't the steps themselves. It was that the same decisions were being made repeatedly by experienced people who should have been focused on delivery strategy, not folder management.</p>
+      <p class="cs-para">Multiply 15–20 minutes per project across hundreds of projects and a 9-person team — the annual cost exceeded 5,200 hours.</p>
 
-      <!-- Before / After -->
       <div class="cs-section-lbl">Before vs After</div>
       <div class="before-after">
         <div class="ba-col">
-          <div class="ba-heading before">Manual Workflow</div>
+          <div class="ba-heading before">Manual</div>
           <ul class="ba-list">
-            <li>Manually create server folder</li>
-            <li>Rename folder to TMS project name</li>
-            <li>Download source files from TMS</li>
-            <li>Move files to correct directory</li>
-            <li>Extract (unzip) all files</li>
-            <li>Verify structure manually</li>
+            <li>Create server folder manually</li>
+            <li>Rename to TMS project name</li>
+            <li>Download source files</li>
+            <li>Move files to directory</li>
+            <li>Extract all files</li>
             <li>15–20 min per project</li>
-            <li>Error-prone, repetitive</li>
+            <li>Consistent naming errors</li>
           </ul>
         </div>
         <div class="ba-col">
-          <div class="ba-heading after">Automated Workflow</div>
+          <div class="ba-heading after">Automated</div>
           <ul class="ba-list">
-            <li>Input: project name / source file</li>
-            <li>Folder auto-created on server</li>
-            <li>Folder renamed to TMS convention</li>
+            <li>Input: project name</li>
+            <li>Auto-created &amp; named folder</li>
             <li>Files downloaded automatically</li>
-            <li>Files moved to correct location</li>
-            <li>Files extracted automatically</li>
-            <li>Ready-to-use workspace created</li>
-            <li>&lt;1 min, zero naming errors</li>
+            <li>Files moved to correct path</li>
+            <li>Auto-extracted, deduped</li>
+            <li>Under 1 minute</li>
+            <li>Zero naming errors</li>
           </ul>
         </div>
       </div>
 
-      <!-- My Role -->
       <div class="cs-section-lbl">My Role</div>
       <div class="role-strip">
-        <div class="role-strip-title">Associate Project Manager · Automation Owner</div>
+        <div class="role-strip-title">Associate PM · Automation Owner</div>
         <div class="role-items">
           <div class="role-item">Identified workflow inefficiencies</div>
-          <div class="role-item">Defined automation requirements</div>
           <div class="role-item">Designed process logic end-to-end</div>
-          <div class="role-item">Collaborated with AI tools to build solution</div>
-          <div class="role-item">Tested and refined automation logic</div>
-          <div class="role-item">Implemented and validated with real projects</div>
+          <div class="role-item">Defined automation requirements</div>
+          <div class="role-item">Used AI tools to build &amp; refine</div>
+          <div class="role-item">Tested with real production projects</div>
           <div class="role-item">Measured and documented impact</div>
-          <div class="role-item">Onboarded team members to the tool</div>
         </div>
       </div>
 
-      <!-- Tech Stack -->
-      <div class="cs-section-lbl">Technology Used</div>
+      <div class="cs-section-lbl">Technology</div>
       <div class="tech-row">
         <span class="tech-pill">Python</span>
         <span class="tech-pill">File System Automation</span>
         <span class="tech-pill">Windows Scripting</span>
-        <span class="tech-pill">TMS API / Integration</span>
-        <span class="tech-pill">AI-assisted Development</span>
-        <span class="tech-pill">Process Logic Design</span>
+        <span class="tech-pill">ChatGPT / Azure AI</span>
+        <span class="tech-pill">Azure DevOps</span>
+        <span class="tech-pill">JIRA</span>
+        <span class="tech-pill">Excel / Internal Trackers</span>
       </div>
+    </div>
 
-    </div><!-- /cs-left -->
-
-    <!-- RIGHT COLUMN -->
-    <div class="cs-right">
-
-      <!-- How it works -->
-      <div class="cs-section-lbl">How It Works</div>
-      <div class="flow">
-        <div class="flow-step">
-          <div class="flow-num">01</div>
-          <div class="flow-content">
-            <div class="flow-title">Input</div>
-            <div class="flow-desc">Project name and source file reference are provided — either manually or pulled from the TMS.</div>
-          </div>
-        </div>
-        <div class="flow-step">
-          <div class="flow-num">02</div>
-          <div class="flow-content">
-            <div class="flow-title">Folder Creation</div>
-            <div class="flow-desc">The system automatically creates a structured folder on the server using the defined directory template.</div>
-          </div>
-        </div>
-        <div class="flow-step">
-          <div class="flow-num">03</div>
-          <div class="flow-content">
-            <div class="flow-title">Folder Naming</div>
-            <div class="flow-desc">The folder is automatically renamed to match the exact TMS project naming convention — eliminating manual naming errors.</div>
-          </div>
-        </div>
-        <div class="flow-step">
-          <div class="flow-num">04</div>
-          <div class="flow-content">
-            <div class="flow-title">File Download</div>
-            <div class="flow-desc">Source files are downloaded from the TMS and moved directly to the newly created project directory.</div>
-          </div>
-        </div>
-        <div class="flow-step">
-          <div class="flow-num">05</div>
-          <div class="flow-content">
-            <div class="flow-title">Extraction</div>
-            <div class="flow-desc">Compressed files are automatically extracted — no manual unzipping required, with duplicate/overwrite protection built in.</div>
-          </div>
-        </div>
-        <div class="flow-step">
-          <div class="flow-num">06</div>
-          <div class="flow-content">
-            <div class="flow-title">Ready Workspace</div>
-            <div class="flow-desc">A clean, correctly structured project workspace is available — in under a minute, with zero manual steps.</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Stakeholders -->
+    <div>
       <div class="cs-section-lbl">Stakeholders Impacted</div>
-      <div class="stakeholder-grid">
-        <div class="sh-card">
-          <div class="sh-role">Project Managers</div>
-          <div class="sh-impact">Primary beneficiaries — freed from repetitive manual tasks to focus on higher-value delivery work.</div>
-        </div>
-        <div class="sh-card">
-          <div class="sh-role">Team Members</div>
-          <div class="sh-impact">Faster access to project resources, reduced delays from manual processing bottlenecks.</div>
-        </div>
-        <div class="sh-card">
-          <div class="sh-role">Senior Management</div>
-          <div class="sh-impact">Improved operational efficiency, reduced error rates, measurable cost savings across the programme.</div>
-        </div>
-        <div class="sh-card">
-          <div class="sh-role">QA Team</div>
-          <div class="sh-impact">Standardised folder structures reduced downstream QA time spent locating and validating files.</div>
-        </div>
-        <div class="sh-card">
-          <div class="sh-role">IT Department</div>
-          <div class="sh-impact">Responsible for integration and maintenance — benefited from reduced ad-hoc support requests.</div>
-        </div>
-        <div class="sh-card">
-          <div class="sh-role">Clients</div>
-          <div class="sh-impact">Indirectly benefited through faster project kick-off times and reduced delivery errors.</div>
-        </div>
+      <div class="sh-grid">
+        <div class="sh-card"><div class="sh-role">Project Managers</div><div class="sh-impact">Freed from repetitive tasks — shifted to strategic delivery work.</div></div>
+        <div class="sh-card"><div class="sh-role">Delivery Teams</div><div class="sh-impact">Faster resource access, fewer delays at project kick-off.</div></div>
+        <div class="sh-card"><div class="sh-role">Senior Management</div><div class="sh-impact">Measurable cost savings, improved operational efficiency.</div></div>
+        <div class="sh-card"><div class="sh-role">QA Team</div><div class="sh-impact">Standardised structures reduced downstream file-location time.</div></div>
+        <div class="sh-card"><div class="sh-role">IT Department</div><div class="sh-impact">Reduced ad-hoc support requests from manual errors.</div></div>
+        <div class="sh-card"><div class="sh-role">Clients</div><div class="sh-impact">Faster project kick-offs, fewer delivery errors.</div></div>
       </div>
 
-      <!-- Challenges -->
-      <div class="cs-section-lbl">Challenges Solved</div>
-      <ul class="ba-list" style="gap:10px;margin-top:4px;">
-        <li>Handling multiple compressed file formats without errors</li>
-        <li>Ensuring correct folder structure logic across varied project types</li>
-        <li>Preventing overwrite and file duplication errors</li>
-        <li>Making the tool usable by non-technical project managers</li>
-        <li>Maintaining accuracy when TMS naming conventions changed</li>
-      </ul>
+      <div class="cs-section-lbl">Consulting Insight</div>
+      <p class="cs-para" style="font-style:italic;border-left:2px solid var(--divider);padding-left:20px;">
+        "Operational inefficiencies often stem from repeated human decision-making at the same level of abstraction. By identifying high-frequency, low-variation decisions and converting them into explicit logic, organisations can transition from people-dependent execution to system-driven workflows — significantly improving scalability and consistency."
+      </p>
 
-      <!-- Future enhancements -->
       <div class="cs-section-lbl">Future Enhancements</div>
       <ul class="enhance-list">
-        <li><span class="enhance-num">01</span>UI dashboard for non-technical users — no command line required</li>
-        <li><span class="enhance-num">02</span>Integration with project management tools for auto-triggering</li>
-        <li><span class="enhance-num">03</span>Email / API-based auto-trigger on new project creation</li>
-        <li><span class="enhance-num">04</span>Logging and audit trail system for tracking every operation</li>
+        <li><span class="enhance-num">01</span>UI dashboard — no command line required</li>
+        <li><span class="enhance-num">02</span>API / email auto-trigger on new project creation</li>
+        <li><span class="enhance-num">03</span>Integration with JIRA / Azure DevOps boards</li>
+        <li><span class="enhance-num">04</span>Logging and full audit trail system</li>
         <li><span class="enhance-num">05</span>Error notification and retry mechanism</li>
       </ul>
+    </div>
+  </div>
 
-    </div><!-- /cs-right -->
-  </div><!-- /cs-body -->
-
-  <!-- BOTTOM ROW -->
   <div class="cs-nav-row">
     <a class="detail-back" href="../pages/works.html" style="padding:0;">&#8249; Back to Works</a>
-    <div style="display:flex;gap:24px;align-items:center;">
-      <a href="lab.html" style="font-family:var(--mono);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--fg-dim);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='var(--fg)'" onmouseout="this.style.color='var(--fg-dim)'">Read Article on Medium →</a>
-    </div>
+    <a href="lab.html" style="font-family:var(--mono);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--fg-dim);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='var(--fg)'" onmouseout="this.style.color='var(--fg-dim)'">Read Article on Medium →</a>
   </div>
 
 </div>
 <script src="../js/main.js"></script>
+<script>
+// ── INTERACTIVE FLOW ──
+const stepData = [
+  {
+    label: "Trigger / Input",
+    what: "A project name or source file reference is provided as input — either entered manually by the PM or pulled automatically from the TMS (Translation Management System).",
+    why: "This is the entry point. Everything downstream depends on a clean, consistent input. Standardising the input format was the first step in making the automation reliable.",
+    tags: ["Manual input", "TMS reference", "Project name"]
+  },
+  {
+    label: "Condition Mapping",
+    what: "The system reads the input and maps it against predefined conditions: request type, client naming conventions, file format expectations, and directory rules.",
+    why: "This is where the decision logic lives. Instead of a human making judgment calls, the system applies explicit if/then rules — the same way, every time.",
+    tags: ["If/then logic", "Rule engine", "Request classification"]
+  },
+  {
+    label: "Decision Logic",
+    what: "Based on the condition map, the system decides: which folder path to use, what naming convention to apply, how to handle exceptions. If request type = X → assign path Y. If delay > threshold → escalate.",
+    why: "This replaces the most cognitively expensive part of the manual workflow — the recurring judgment calls that drained PM bandwidth every single day.",
+    tags: ["Python logic", "Edge case handling", "Escalation rules"]
+  },
+  {
+    label: "Action Path",
+    what: "The system executes: creates the folder at the correct server path, renames it to the exact TMS naming convention, downloads source files from the TMS, and moves them to the designated directory.",
+    why: "Four of the five manual steps — fully automated. The system performs them faster, more accurately, and without requiring anyone's attention.",
+    tags: ["Folder creation", "File download", "Directory routing"]
+  },
+  {
+    label: "Extraction",
+    what: "Compressed files are automatically extracted using Python's zipfile library. The system checks for duplicates before extracting and handles multiple compressed formats.",
+    why: "This step was the most error-prone manually — wrong extraction paths, missed files, duplicate overwrites. Automation eliminated all of these.",
+    tags: ["Python zipfile", "Deduplication", "Format handling"]
+  },
+  {
+    label: "Output",
+    what: "A clean, correctly structured project workspace is ready — folder created, named correctly, files in the right place, extracted and accessible. Under one minute. Zero manual steps.",
+    why: "The entire manual workflow (15–20 min, error-prone) is replaced by a sub-60-second automated run. The PM can start actual project work immediately.",
+    tags: ["Ready workspace", "<1 min", "Zero errors"]
+  }
+];
+
+const nodes = document.querySelectorAll('.flow-node');
+const detail = document.getElementById('flow-detail');
+
+function renderDetail(idx) {
+  const d = stepData[idx];
+  detail.innerHTML = `
+    <div>
+      <div class="fd-label">What happens</div>
+      <p class="fd-text">${d.what}</p>
+    </div>
+    <div>
+      <div class="fd-label">Why it matters</div>
+      <p class="fd-text">${d.why}</p>
+      <div class="fd-tag-row">${d.tags.map(t => `<span class="fd-tag">${t}</span>`).join('')}</div>
+    </div>`;
+  detail.classList.add('visible');
+}
+
+nodes.forEach((n, i) => {
+  n.addEventListener('click', () => {
+    nodes.forEach(x => x.classList.remove('active'));
+    n.classList.add('active');
+    renderDetail(i);
+  });
+});
+
+renderDetail(0); // default
+</script>
 </body>
 </html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Repetitive Task Pattern Identification | Akshat Vyavahare</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;600;700;800;900&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../../css/style.css"/>
+  <style>
+    .cs-hero{padding:72px 64px 56px 48px;border-bottom:1px solid var(--divider);}
+    .cs-eyebrow{font-family:var(--mono);font-size:.64rem;letter-spacing:.22em;text-transform:uppercase;color:var(--fg-dim);margin-bottom:20px;}
+    .cs-title{font-size:clamp(2rem,4vw,4.8rem);font-weight:200;letter-spacing:.03em;line-height:1.05;margin-bottom:16px;}
+    .cs-title strong{font-weight:800;}
+    .cs-subtitle{font-size:.9rem;font-weight:300;opacity:.92;max-width:600px;line-height:1.75;}
+    .impact-strip{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--divider);border-bottom:1px solid var(--divider);}
+    .is-cell{padding:32px 0 32px 48px;border-right:1px solid var(--divider);}
+    .is-cell:last-child{border-right:none;}
+    .is-num{font-size:clamp(1.8rem,3.5vw,3.5rem);font-weight:800;letter-spacing:-.04em;line-height:1;margin-bottom:6px;}
+    .is-lbl{font-family:var(--mono);font-size:.54rem;letter-spacing:.18em;text-transform:uppercase;color:var(--fg-dim);}
+    .cs-body{padding:64px 64px 80px 48px;display:grid;grid-template-columns:1fr 1fr;gap:72px;}
+    .cs-sl{font-family:var(--mono);font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--fg-dim);margin:36px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--divider);}
+    .cs-sl:first-child{margin-top:0;}
+    .cs-p{font-size:.86rem;font-weight:300;line-height:1.92;opacity:.92;margin-bottom:10px;}
+    .cs-p.quote{font-style:italic;border-left:2px solid var(--divider);padding-left:18px;}
+    .tech-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px;}
+    .tech-pill{font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;border:1px solid var(--divider);border-radius:999px;padding:5px 13px;color:var(--fg-dim);transition:color .2s,border-color .2s;}
+    .tech-pill:hover{color:var(--fg);border-color:var(--fg);}
+    .cs-nav-row{padding:0 64px 52px 48px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--divider);}
+    @media(max-width:860px){
+      .cs-hero{padding:32px 20px 44px;}
+      .impact-strip{grid-template-columns:1fr 1fr;}
+      .is-cell{padding:24px 0 24px 20px;}
+      .cs-body{grid-template-columns:1fr;gap:0;padding:40px 20px 60px;}
+      .cs-nav-row{padding:24px 20px 48px;flex-direction:column;gap:16px;align-items:flex-start;}
+    }
+  </style>
+</head>
+<body>
+<script src="../../js/sidebar.js"></script>
+<div class="main">
+
+  <a class="detail-back" href="../works.html">&#8249; BACK TO WORKS</a>
+
+  <div class="cs-hero reveal">
+    <div class="cs-eyebrow">Systems Design · Operational Analysis · 2022–2023</div>
+    <h1 class="cs-title"><strong>Repetitive Task Pattern Identification</strong></h1>
+    <p class="cs-subtitle">Most operational inefficiencies go unnoticed because teams are too busy executing to observe. I built a systematic approach to step back from BAU execution and analyse the patterns beneath it — identifying which tasks were truly repeatable, which required judgment, and which could be automated entirely. This work became the foundation for all subsequent automation initiatives.</p>
+  </div>
+
+  <div class="impact-strip reveal">
+    <div class="is-cell"><div class="is-num">Observe</div><div class="is-lbl">Trigger Patterns</div></div><div class="is-cell"><div class="is-num">Classify</div><div class="is-lbl">Task Types</div></div><div class="is-cell"><div class="is-num">Extract</div><div class="is-lbl">Decision Logic</div></div><div class="is-cell"><div class="is-num">Standardise</div><div class="is-lbl">Workflow</div></div>
+  </div>
+
+  <div class="cs-body">
+    <div>
+      <div class="cs-sl">The Thinking</div><p class="cs-p ">"Repetition is not work — it is a signal." I started logging recurring tasks not just for volume, but for structure. What triggered them? What decision was made? What was the output? After weeks of observation, patterns emerged that no one had formally acknowledged.</p><div class="cs-sl">Method</div><p class="cs-p ">Observed recurring workflows across multiple delivery programs over several months. Tagged each recurring task with: trigger type, action taken, frequency, variation level. Categorised into Repeatable (same trigger → same action, every time) and Variable (requires judgment, context-dependent). Repeatable tasks became automation candidates. Variable tasks became targets for better decision frameworks.</p><div class="cs-sl">Tools</div><p class="cs-p ">Observation + structured logging · Excel tracking system · Internal delivery dashboards · Pattern frequency analysis</p>
+    </div>
+    <div>
+      <div class="cs-sl">System Design</div><p class="cs-p ">Task → Pattern Detection → Frequency Mapping → Logic Extraction → Standardisation</p><div class="cs-sl">Impact</div><p class="cs-p ">Built the analytical foundation for all subsequent automation work. Reduced redundant effort across the team. Created a shared language for talking about operational inefficiency. Improved team awareness of process gaps that had previously been invisible.</p><div class="cs-sl">Consulting Insight</div><p class="cs-p quote">Repetition is operational data. Organisations that fail to analyse it remain inefficient; those that leverage it unlock automation opportunities. The first step is simply deciding to look.</p>
+      <div class="cs-sl">Expertise Tags</div>
+      <div class="tech-row">
+        <span class="tech-pill">Pattern Recognition</span><span class="tech-pill">Process Analysis</span><span class="tech-pill">Excel</span><span class="tech-pill">Observation System</span><span class="tech-pill">Operational Analytics</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="cs-nav-row">
+    <a class="detail-back" href="../works.html" style="padding:0;">&#8249; Back to Works</a>
+    <a href="../lab.html" style="font-family:var(--mono);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--fg-dim);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='var(--fg)'" onmouseout="this.style.color='var(--fg-dim)'">The Lab Notes →</a>
+  </div>
+
+</div>
+<script src="../../js/main.js"></script>
+</body>
+</html>

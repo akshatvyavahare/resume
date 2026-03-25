@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Data Aggregation & Unified Dashboard Concept | Akshat Vyavahare</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;600;700;800;900&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../../css/style.css"/>
+  <style>
+    .cs-hero{padding:72px 64px 56px 48px;border-bottom:1px solid var(--divider);}
+    .cs-eyebrow{font-family:var(--mono);font-size:.64rem;letter-spacing:.22em;text-transform:uppercase;color:var(--fg-dim);margin-bottom:20px;}
+    .cs-title{font-size:clamp(2rem,4vw,4.8rem);font-weight:200;letter-spacing:.03em;line-height:1.05;margin-bottom:16px;}
+    .cs-title strong{font-weight:800;}
+    .cs-subtitle{font-size:.9rem;font-weight:300;opacity:.92;max-width:600px;line-height:1.75;}
+    .impact-strip{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--divider);border-bottom:1px solid var(--divider);}
+    .is-cell{padding:32px 0 32px 48px;border-right:1px solid var(--divider);}
+    .is-cell:last-child{border-right:none;}
+    .is-num{font-size:clamp(1.8rem,3.5vw,3.5rem);font-weight:800;letter-spacing:-.04em;line-height:1;margin-bottom:6px;}
+    .is-lbl{font-family:var(--mono);font-size:.54rem;letter-spacing:.18em;text-transform:uppercase;color:var(--fg-dim);}
+    .cs-body{padding:64px 64px 80px 48px;display:grid;grid-template-columns:1fr 1fr;gap:72px;}
+    .cs-sl{font-family:var(--mono);font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--fg-dim);margin:36px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--divider);}
+    .cs-sl:first-child{margin-top:0;}
+    .cs-p{font-size:.86rem;font-weight:300;line-height:1.92;opacity:.92;margin-bottom:10px;}
+    .cs-p.quote{font-style:italic;border-left:2px solid var(--divider);padding-left:18px;}
+    .tech-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px;}
+    .tech-pill{font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;border:1px solid var(--divider);border-radius:999px;padding:5px 13px;color:var(--fg-dim);transition:color .2s,border-color .2s;}
+    .tech-pill:hover{color:var(--fg);border-color:var(--fg);}
+    .cs-nav-row{padding:0 64px 52px 48px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--divider);}
+    @media(max-width:860px){
+      .cs-hero{padding:32px 20px 44px;}
+      .impact-strip{grid-template-columns:1fr 1fr;}
+      .is-cell{padding:24px 0 24px 20px;}
+      .cs-body{grid-template-columns:1fr;gap:0;padding:40px 20px 60px;}
+      .cs-nav-row{padding:24px 20px 48px;flex-direction:column;gap:16px;align-items:flex-start;}
+    }
+  </style>
+</head>
+<body>
+<script src="../../js/sidebar.js"></script>
+<div class="main">
+
+  <a class="detail-back" href="../works.html">&#8249; BACK TO WORKS</a>
+
+  <div class="cs-hero reveal">
+    <div class="cs-eyebrow">Exploration Project · Python · Selenium · System Design</div>
+    <h1 class="cs-title"><strong>Data Aggregation & Unified Dashboard Concept</strong></h1>
+    <p class="cs-subtitle">Fragmented data across multiple platforms was slowing decision-making. I designed and prototyped a unified dashboard concept to consolidate data from Airtable, web sources, and spreadsheets into a single coherent view — demonstrating the architectural thinking behind modern data aggregation pipelines.</p>
+  </div>
+
+  <div class="impact-strip reveal">
+    <div class="is-cell"><div class="is-num">Python</div><div class="is-lbl">Core Language</div></div><div class="is-cell"><div class="is-num">Selenium</div><div class="is-lbl">Web Extraction</div></div><div class="is-cell"><div class="is-num">3+</div><div class="is-lbl">Data Sources</div></div><div class="is-cell"><div class="is-num">∑</div><div class="is-lbl">Unified View</div></div>
+  </div>
+
+  <div class="cs-body">
+    <div>
+      <div class="cs-sl">The Problem</div><p class="cs-p ">Data existed in silos: some in Airtable, some scraped from web sources, some maintained in Google Sheets. Pulling a coherent view required manual cross-referencing across multiple tools — slow, error-prone, and not scalable. Every decision was delayed by data assembly rather than data analysis.</p><div class="cs-sl">The Approach</div><p class="cs-p ">Designed the aggregation architecture first: identify all source systems, map their data schemas, define the unified output structure. Then built Python scripts to extract data from each source — using Selenium for web-based sources that lacked APIs. Prototyped a consolidated dashboard to surface the aggregated data in a single, navigable view.</p><div class="cs-sl">Tools</div><p class="cs-p ">Python · Selenium · Airtable API · Google Sheets integration · Dashboard prototyping</p>
+    </div>
+    <div>
+      <div class="cs-sl">System Design</div><p class="cs-p ">Source Systems → Extraction Layer (Python/Selenium) → Transformation → Unified Data Store → Dashboard Output</p><div class="cs-sl">Impact</div><p class="cs-p ">Demonstrated strong systems thinking on data architecture. Proved the feasibility of the aggregation approach. Created a reusable template for future data consolidation projects. The concept directly influenced how operational data was later structured for executive reporting.</p><div class="cs-sl">Consulting Insight</div><p class="cs-p quote">Fragmented data is not just an inconvenience — it is a decision tax. Every time someone has to manually assemble a view before they can analyse it, that is time and accuracy being lost. Unified data architecture is an investment that pays back on every decision that follows.</p>
+      <div class="cs-sl">Expertise Tags</div>
+      <div class="tech-row">
+        <span class="tech-pill">Python</span><span class="tech-pill">Selenium</span><span class="tech-pill">Data Aggregation</span><span class="tech-pill">Dashboard Design</span><span class="tech-pill">System Architecture</span><span class="tech-pill">Airtable</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="cs-nav-row">
+    <a class="detail-back" href="../works.html" style="padding:0;">&#8249; Back to Works</a>
+    <a href="../lab.html" style="font-family:var(--mono);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--fg-dim);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='var(--fg)'" onmouseout="this.style.color='var(--fg-dim)'">The Lab Notes →</a>
+  </div>
+
+</div>
+<script src="../../js/main.js"></script>
+</body>
+</html>

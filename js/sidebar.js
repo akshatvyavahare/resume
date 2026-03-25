@@ -1,21 +1,30 @@
 (function(){
-  const onRoot = !location.pathname.includes('/pages/');
-  const b = onRoot ? '' : '../';
+  const path = location.pathname;
+  const depth = (path.match(/\//g) || []).length;
+  // depth=1: /index.html (root)
+  // depth=2: /pages/works.html (one level)
+  // depth=3: /pages/works/w1.html (two levels)
+  let b;
+  if (path.includes('/pages/works/') || path.includes('/pages/works\\')) {
+    b = '../../';
+  } else if (path.includes('/pages/')) {
+    b = '../';
+  } else {
+    b = '';
+  }
 
-  // Build the mobile-nav link list (same links as sidebar)
   const navLinks = [
-    ['HOME', b+'index.html'],
-    ['WORKS', b+'pages/works.html'],
-    ['THE LAB NOTES', b+'pages/lab.html'],
-    ['ABOUT', b+'pages/about.html'],
-    ['CONTACT', b+'pages/contact.html'],
+    ['HOME',           b+'index.html'],
+    ['WORKS',          b+'pages/works.html'],
+    ['THE LAB NOTES',  b+'pages/lab.html'],
+    ['ABOUT',          b+'pages/about.html'],
+    ['CONTACT',        b+'pages/contact.html'],
   ];
 
-  const mobileLinks = navLinks.map(([t,h]) => `<li><a href="${h}">${t}</a></li>`).join('');
+  const mobileLinks  = navLinks.map(([t,h]) => `<li><a href="${h}">${t}</a></li>`).join('');
   const sidebarLinks = navLinks.map(([t,h]) => `<a href="${h}">${t}</a>`).join('');
 
   document.body.insertAdjacentHTML('afterbegin', `
-    <!-- Mobile top nav (visible < 860px) -->
     <nav class="mobile-nav" id="mobile-nav">
       <ul class="mobile-nav-links">${mobileLinks}</ul>
       <div class="mobile-nav-icons">
@@ -31,7 +40,6 @@
       </div>
     </nav>
 
-    <!-- Desktop sidebar (visible > 860px) -->
     <aside class="sidebar">
       <nav>${sidebarLinks}</nav>
       <div class="sidebar-sup">

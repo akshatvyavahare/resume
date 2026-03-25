@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Delegation & Ownership Model | Akshat Vyavahare</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;600;700;800;900&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../../css/style.css"/>
+  <style>
+    .cs-hero{padding:72px 64px 56px 48px;border-bottom:1px solid var(--divider);}
+    .cs-eyebrow{font-family:var(--mono);font-size:.64rem;letter-spacing:.22em;text-transform:uppercase;color:var(--fg-dim);margin-bottom:20px;}
+    .cs-title{font-size:clamp(2rem,4vw,4.8rem);font-weight:200;letter-spacing:.03em;line-height:1.05;margin-bottom:16px;}
+    .cs-title strong{font-weight:800;}
+    .cs-subtitle{font-size:.9rem;font-weight:300;opacity:.92;max-width:600px;line-height:1.75;}
+    .impact-strip{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--divider);border-bottom:1px solid var(--divider);}
+    .is-cell{padding:32px 0 32px 48px;border-right:1px solid var(--divider);}
+    .is-cell:last-child{border-right:none;}
+    .is-num{font-size:clamp(1.8rem,3.5vw,3.5rem);font-weight:800;letter-spacing:-.04em;line-height:1;margin-bottom:6px;}
+    .is-lbl{font-family:var(--mono);font-size:.54rem;letter-spacing:.18em;text-transform:uppercase;color:var(--fg-dim);}
+    .cs-body{padding:64px 64px 80px 48px;display:grid;grid-template-columns:1fr 1fr;gap:72px;}
+    .cs-sl{font-family:var(--mono);font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--fg-dim);margin:36px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--divider);}
+    .cs-sl:first-child{margin-top:0;}
+    .cs-p{font-size:.86rem;font-weight:300;line-height:1.92;opacity:.92;margin-bottom:10px;}
+    .cs-p.quote{font-style:italic;border-left:2px solid var(--divider);padding-left:18px;}
+    .tech-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px;}
+    .tech-pill{font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;border:1px solid var(--divider);border-radius:999px;padding:5px 13px;color:var(--fg-dim);transition:color .2s,border-color .2s;}
+    .tech-pill:hover{color:var(--fg);border-color:var(--fg);}
+    .cs-nav-row{padding:0 64px 52px 48px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--divider);}
+    @media(max-width:860px){
+      .cs-hero{padding:32px 20px 44px;}
+      .impact-strip{grid-template-columns:1fr 1fr;}
+      .is-cell{padding:24px 0 24px 20px;}
+      .cs-body{grid-template-columns:1fr;gap:0;padding:40px 20px 60px;}
+      .cs-nav-row{padding:24px 20px 48px;flex-direction:column;gap:16px;align-items:flex-start;}
+    }
+  </style>
+</head>
+<body>
+<script src="../../js/sidebar.js"></script>
+<div class="main">
+
+  <a class="detail-back" href="../works.html">&#8249; BACK TO WORKS</a>
+
+  <div class="cs-hero reveal">
+    <div class="cs-eyebrow">Team Design · Accountability · Operational Resilience</div>
+    <h1 class="cs-title"><strong>Delegation & Ownership Model</strong></h1>
+    <p class="cs-subtitle">Unclear task ownership was causing delays whenever key team members were unavailable. I designed a structured delegation framework defining primary and backup ownership for every task — eliminating single-point-of-failure dependencies and creating operational resilience across the delivery team.</p>
+  </div>
+
+  <div class="impact-strip reveal">
+    <div class="is-cell"><div class="is-num">0</div><div class="is-lbl">Single Points of Failure</div></div><div class="is-cell"><div class="is-num">100%</div><div class="is-lbl">Task Ownership</div></div><div class="is-cell"><div class="is-num">↓</div><div class="is-lbl">Delivery Delays</div></div><div class="is-cell"><div class="is-num">↑</div><div class="is-lbl">Accountability</div></div>
+  </div>
+
+  <div class="cs-body">
+    <div>
+      <div class="cs-sl">The Problem</div><p class="cs-p ">When a specific team member was unavailable, tasks waited. There was no documented backup ownership, no escalation path, and no shared understanding of who could step in. This created bottlenecks that were entirely avoidable — not from lack of capability, but from lack of structure.</p><div class="cs-sl">The Solution</div><p class="cs-p ">Mapped every recurring task to a primary owner and a backup owner. Defined the trigger condition for backup activation: if primary is unavailable for >X hours on task Y, backup assumes ownership without waiting for instruction. Created a simple reference document accessible to the whole team — not a complex system, but a clear, shared agreement.</p><div class="cs-sl">The Principle</div><p class="cs-p ">Task → Primary Owner → Condition Check → Backup Owner → Execution. The logic mirrors fallback systems in technology: redundancy built in by design, not added after failure.</p>
+    </div>
+    <div>
+      <div class="cs-sl">Impact</div><p class="cs-p ">Clear accountability eliminated the 'waiting for the right person' pattern. Delivery delays caused by individual unavailability dropped significantly. The team developed a stronger ownership culture — people knew not just their tasks, but who they were backing up and who was backing them up.</p><div class="cs-sl">Wider Application</div><p class="cs-p ">This framework was applied across the Ford account and other key programs where task concentration risk had been identified. It became part of the standard onboarding framework for new team members.</p><div class="cs-sl">Consulting Insight</div><p class="cs-p quote">Ownership clarity prevents execution friction. Most delays in team-based work are not caused by lack of skill — they are caused by ambiguity about who should act. A simple, documented ownership model resolves this.</p>
+      <div class="cs-sl">Expertise Tags</div>
+      <div class="tech-row">
+        <span class="tech-pill">Delegation</span><span class="tech-pill">Accountability</span><span class="tech-pill">Fallback Logic</span><span class="tech-pill">Team Design</span><span class="tech-pill">Operational Resilience</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="cs-nav-row">
+    <a class="detail-back" href="../works.html" style="padding:0;">&#8249; Back to Works</a>
+    <a href="../lab.html" style="font-family:var(--mono);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--fg-dim);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='var(--fg)'" onmouseout="this.style.color='var(--fg-dim)'">The Lab Notes →</a>
+  </div>
+
+</div>
+<script src="../../js/main.js"></script>
+</body>
+</html>
