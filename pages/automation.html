@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Project Folder Automation — Case Study | Akshat Vyavahare</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;600;700;800;900&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../css/style.css"/>
+  <style>
+
+    /* ── CASE STUDY SPECIFIC ── */
+    .cs-hero {
+      padding: 72px 64px 60px 48px;
+      border-bottom: 1px solid var(--divider);
+    }
+    .cs-eyebrow {
+      font-family: var(--mono);
+      font-size: .62rem;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--fg-dim);
+      margin-bottom: 20px;
+    }
+    .cs-title {
+      font-size: clamp(2rem, 4.5vw, 5rem);
+      font-weight: 200;
+      letter-spacing: .03em;
+      line-height: 1.05;
+      margin-bottom: 16px;
+    }
+    .cs-title strong { font-weight: 800; }
+    .cs-subtitle {
+      font-size: .92rem;
+      font-weight: 300;
+      color: var(--fg-dim);
+      max-width: 560px;
+      line-height: 1.7;
+    }
+
+    /* Impact strip — 4 numbers */
+    .impact-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid var(--divider);
+      border-bottom: 1px solid var(--divider);
+    }
+    .is-cell {
+      padding: 36px 0 36px 48px;
+      border-right: 1px solid var(--divider);
+    }
+    .is-cell:last-child { border-right: none; }
+    .is-num {
+      font-size: clamp(2.2rem, 4vw, 4rem);
+      font-weight: 800;
+      letter-spacing: -.04em;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .is-lbl {
+      font-family: var(--mono);
+      font-size: .54rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--fg-dim);
+    }
+
+    /* Body grid */
+    .cs-body {
+      padding: 64px 64px 80px 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+    }
+    .cs-left {}
+    .cs-right {}
+
+    /* Section headers within body */
+    .cs-section-lbl {
+      font-family: var(--mono);
+      font-size: .6rem;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--fg-dim);
+      margin: 40px 0 10px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--divider);
+    }
+    .cs-section-lbl:first-child { margin-top: 0; }
+
+    .cs-para {
+      font-size: .86rem;
+      font-weight: 300;
+      line-height: 1.92;
+      opacity: .78;
+      margin-bottom: 12px;
+    }
+
+    /* Flow diagram */
+    .flow {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      margin-top: 4px;
+    }
+    .flow-step {
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      gap: 16px;
+      align-items: start;
+      padding: 18px 20px 18px 0;
+      border-bottom: 1px solid var(--divider);
+      transition: background .2s;
+    }
+    .flow-step:last-child { border-bottom: none; }
+    .flow-step:hover { background: rgba(255,255,255,.03); }
+    body.light .flow-step:hover { background: rgba(0,0,0,.03); }
+    .flow-num {
+      font-family: var(--mono);
+      font-size: .62rem;
+      letter-spacing: .1em;
+      color: var(--fg-dim);
+      padding-top: 3px;
+      font-weight: 400;
+    }
+    .flow-content {}
+    .flow-title {
+      font-size: .88rem;
+      font-weight: 600;
+      margin-bottom: 3px;
+      letter-spacing: .01em;
+    }
+    .flow-desc {
+      font-size: .76rem;
+      font-weight: 300;
+      line-height: 1.7;
+      opacity: .65;
+    }
+
+    /* Before / After comparison */
+    .before-after {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      margin-top: 4px;
+    }
+    .ba-col {
+      border: 1px solid var(--divider);
+      padding: 24px 22px;
+    }
+    .ba-heading {
+      font-family: var(--mono);
+      font-size: .58rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--divider);
+    }
+    .ba-heading.before { color: #e87b7b; }
+    .ba-heading.after  { color: #6dbf7e; }
+    .ba-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .ba-list li {
+      font-size: .78rem;
+      font-weight: 300;
+      line-height: 1.6;
+      opacity: .75;
+      padding-left: 14px;
+      position: relative;
+    }
+    .ba-list li::before { content: '—'; position: absolute; left: 0; color: var(--fg-dim); }
+
+    /* Stakeholder grid */
+    .stakeholder-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      margin-top: 4px;
+    }
+    .sh-card {
+      border: 1px solid var(--divider);
+      padding: 20px 18px;
+      transition: background .2s;
+    }
+    .sh-card:hover { background: rgba(255,255,255,.04); }
+    body.light .sh-card:hover { background: rgba(0,0,0,.03); }
+    .sh-role {
+      font-size: .78rem;
+      font-weight: 700;
+      margin-bottom: 5px;
+      letter-spacing: .01em;
+    }
+    .sh-impact {
+      font-size: .72rem;
+      font-weight: 300;
+      line-height: 1.65;
+      opacity: .65;
+    }
+
+    /* Tech stack pills */
+    .tech-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 4px;
+    }
+    .tech-pill {
+      font-family: var(--mono);
+      font-size: .6rem;
+      letter-spacing: .1em;
+      border: 1px solid var(--divider);
+      border-radius: 999px;
+      padding: 6px 14px;
+      color: var(--fg-dim);
+      transition: color .2s, border-color .2s;
+    }
+    .tech-pill:hover { color: var(--fg); border-color: var(--fg); }
+
+    /* Future enhancements */
+    .enhance-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: 4px;
+    }
+    .enhance-list li {
+      font-size: .82rem;
+      font-weight: 300;
+      line-height: 1.75;
+      opacity: .72;
+      padding: 13px 0;
+      border-bottom: 1px solid var(--divider);
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+    }
+    .enhance-list li:last-child { border-bottom: none; }
+    .enhance-num {
+      font-family: var(--mono);
+      font-size: .56rem;
+      color: var(--fg-dim);
+      flex-shrink: 0;
+    }
+
+    /* Full-width role block */
+    .role-strip {
+      border: 1px solid var(--divider);
+      padding: 32px 28px;
+      margin-top: 4px;
+    }
+    .role-strip-title {
+      font-size: .92rem;
+      font-weight: 700;
+      letter-spacing: .02em;
+      margin-bottom: 16px;
+    }
+    .role-items {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 32px;
+    }
+    .role-item {
+      font-size: .78rem;
+      font-weight: 300;
+      line-height: 1.6;
+      opacity: .72;
+      padding-left: 14px;
+      position: relative;
+    }
+    .role-item::before { content: '—'; position: absolute; left: 0; color: var(--fg-dim); }
+
+    /* Back link row */
+    .cs-nav-row {
+      padding: 0 64px 52px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--divider);
+    }
+
+    @media(max-width:860px){
+      .cs-hero { padding: 40px 20px 48px; }
+      .impact-strip { grid-template-columns: 1fr 1fr; }
+      .is-cell { padding: 28px 0 28px 20px; }
+      .cs-body { grid-template-columns: 1fr; gap: 0; padding: 40px 20px 60px; }
+      .before-after { grid-template-columns: 1fr; }
+      .stakeholder-grid { grid-template-columns: 1fr; }
+      .role-items { grid-template-columns: 1fr; }
+      .cs-nav-row { padding: 24px 20px 48px; flex-direction: column; gap: 16px; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+<script src="../js/sidebar.js"></script>
+<div class="main">
+
+  <!-- BACK -->
+  <a class="detail-back" href="../pages/works.html">&#8249; BACK TO WORKS</a>
+
+  <!-- HERO -->
+  <div class="cs-hero reveal">
+    <div class="cs-eyebrow">Case Study · Automation · Process Engineering</div>
+    <h1 class="cs-title">
+      Project Folder<br><strong>Automation System</strong>
+    </h1>
+    <p class="cs-subtitle">
+      How I automated a repetitive, error-prone manual workflow — eliminating 5,200+ hours of manual work annually across a global project management team.
+    </p>
+  </div>
+
+  <!-- IMPACT STRIP -->
+  <div class="impact-strip reveal">
+    <div class="is-cell">
+      <div class="is-num"><span class="cu" data-t="5200" data-suf="+">0</span></div>
+      <div class="is-lbl">Hours Saved / Year</div>
+    </div>
+    <div class="is-cell">
+      <div class="is-num">70<span style="font-size:.6em;font-weight:300;">–</span>90%</div>
+      <div class="is-lbl">Manual Effort Reduced</div>
+    </div>
+    <div class="is-cell">
+      <div class="is-num"><span class="cu" data-t="0" data-suf="">0</span></div>
+      <div class="is-lbl">Folder Naming Errors</div>
+    </div>
+    <div class="is-cell">
+      <div class="is-num"><span class="cu" data-t="9">0</span></div>
+      <div class="is-lbl">Team Members Benefited</div>
+    </div>
+  </div>
+
+  <!-- MAIN BODY -->
+  <div class="cs-body">
+
+    <!-- LEFT COLUMN -->
+    <div class="cs-left">
+
+      <!-- Problem -->
+      <div class="cs-section-lbl">The Problem</div>
+      <p class="cs-para">In a global project management environment handling hundreds of projects simultaneously, every new project triggered the same sequence of manual steps — repeated, without exception, by every Project Manager on the team.</p>
+      <p class="cs-para">Each project required manually creating a folder on the server, renaming it to match the project naming convention from the TMS (Translation Management System), downloading the source files, moving them into the correct directory, and then extracting the compressed files. Five steps. Every project. Every time.</p>
+      <p class="cs-para">This wasn't a minor inconvenience — it was a structural drain on the team's time. Multiply 15–20 minutes per project across hundreds of projects and a 9-person team, and the cost becomes significant. Beyond time, manual processes introduce errors: wrong folder names, files in the wrong directories, missed extractions. Each error created downstream delays.</p>
+
+      <!-- Before / After -->
+      <div class="cs-section-lbl">Before vs After</div>
+      <div class="before-after">
+        <div class="ba-col">
+          <div class="ba-heading before">Manual Workflow</div>
+          <ul class="ba-list">
+            <li>Manually create server folder</li>
+            <li>Rename folder to TMS project name</li>
+            <li>Download source files from TMS</li>
+            <li>Move files to correct directory</li>
+            <li>Extract (unzip) all files</li>
+            <li>Verify structure manually</li>
+            <li>15–20 min per project</li>
+            <li>Error-prone, repetitive</li>
+          </ul>
+        </div>
+        <div class="ba-col">
+          <div class="ba-heading after">Automated Workflow</div>
+          <ul class="ba-list">
+            <li>Input: project name / source file</li>
+            <li>Folder auto-created on server</li>
+            <li>Folder renamed to TMS convention</li>
+            <li>Files downloaded automatically</li>
+            <li>Files moved to correct location</li>
+            <li>Files extracted automatically</li>
+            <li>Ready-to-use workspace created</li>
+            <li>&lt;1 min, zero naming errors</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- My Role -->
+      <div class="cs-section-lbl">My Role</div>
+      <div class="role-strip">
+        <div class="role-strip-title">Associate Project Manager · Automation Owner</div>
+        <div class="role-items">
+          <div class="role-item">Identified workflow inefficiencies</div>
+          <div class="role-item">Defined automation requirements</div>
+          <div class="role-item">Designed process logic end-to-end</div>
+          <div class="role-item">Collaborated with AI tools to build solution</div>
+          <div class="role-item">Tested and refined automation logic</div>
+          <div class="role-item">Implemented and validated with real projects</div>
+          <div class="role-item">Measured and documented impact</div>
+          <div class="role-item">Onboarded team members to the tool</div>
+        </div>
+      </div>
+
+      <!-- Tech Stack -->
+      <div class="cs-section-lbl">Technology Used</div>
+      <div class="tech-row">
+        <span class="tech-pill">Python</span>
+        <span class="tech-pill">File System Automation</span>
+        <span class="tech-pill">Windows Scripting</span>
+        <span class="tech-pill">TMS API / Integration</span>
+        <span class="tech-pill">AI-assisted Development</span>
+        <span class="tech-pill">Process Logic Design</span>
+      </div>
+
+    </div><!-- /cs-left -->
+
+    <!-- RIGHT COLUMN -->
+    <div class="cs-right">
+
+      <!-- How it works -->
+      <div class="cs-section-lbl">How It Works</div>
+      <div class="flow">
+        <div class="flow-step">
+          <div class="flow-num">01</div>
+          <div class="flow-content">
+            <div class="flow-title">Input</div>
+            <div class="flow-desc">Project name and source file reference are provided — either manually or pulled from the TMS.</div>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">02</div>
+          <div class="flow-content">
+            <div class="flow-title">Folder Creation</div>
+            <div class="flow-desc">The system automatically creates a structured folder on the server using the defined directory template.</div>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">03</div>
+          <div class="flow-content">
+            <div class="flow-title">Folder Naming</div>
+            <div class="flow-desc">The folder is automatically renamed to match the exact TMS project naming convention — eliminating manual naming errors.</div>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">04</div>
+          <div class="flow-content">
+            <div class="flow-title">File Download</div>
+            <div class="flow-desc">Source files are downloaded from the TMS and moved directly to the newly created project directory.</div>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">05</div>
+          <div class="flow-content">
+            <div class="flow-title">Extraction</div>
+            <div class="flow-desc">Compressed files are automatically extracted — no manual unzipping required, with duplicate/overwrite protection built in.</div>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">06</div>
+          <div class="flow-content">
+            <div class="flow-title">Ready Workspace</div>
+            <div class="flow-desc">A clean, correctly structured project workspace is available — in under a minute, with zero manual steps.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stakeholders -->
+      <div class="cs-section-lbl">Stakeholders Impacted</div>
+      <div class="stakeholder-grid">
+        <div class="sh-card">
+          <div class="sh-role">Project Managers</div>
+          <div class="sh-impact">Primary beneficiaries — freed from repetitive manual tasks to focus on higher-value delivery work.</div>
+        </div>
+        <div class="sh-card">
+          <div class="sh-role">Team Members</div>
+          <div class="sh-impact">Faster access to project resources, reduced delays from manual processing bottlenecks.</div>
+        </div>
+        <div class="sh-card">
+          <div class="sh-role">Senior Management</div>
+          <div class="sh-impact">Improved operational efficiency, reduced error rates, measurable cost savings across the programme.</div>
+        </div>
+        <div class="sh-card">
+          <div class="sh-role">QA Team</div>
+          <div class="sh-impact">Standardised folder structures reduced downstream QA time spent locating and validating files.</div>
+        </div>
+        <div class="sh-card">
+          <div class="sh-role">IT Department</div>
+          <div class="sh-impact">Responsible for integration and maintenance — benefited from reduced ad-hoc support requests.</div>
+        </div>
+        <div class="sh-card">
+          <div class="sh-role">Clients</div>
+          <div class="sh-impact">Indirectly benefited through faster project kick-off times and reduced delivery errors.</div>
+        </div>
+      </div>
+
+      <!-- Challenges -->
+      <div class="cs-section-lbl">Challenges Solved</div>
+      <ul class="ba-list" style="gap:10px;margin-top:4px;">
+        <li>Handling multiple compressed file formats without errors</li>
+        <li>Ensuring correct folder structure logic across varied project types</li>
+        <li>Preventing overwrite and file duplication errors</li>
+        <li>Making the tool usable by non-technical project managers</li>
+        <li>Maintaining accuracy when TMS naming conventions changed</li>
+      </ul>
+
+      <!-- Future enhancements -->
+      <div class="cs-section-lbl">Future Enhancements</div>
+      <ul class="enhance-list">
+        <li><span class="enhance-num">01</span>UI dashboard for non-technical users — no command line required</li>
+        <li><span class="enhance-num">02</span>Integration with project management tools for auto-triggering</li>
+        <li><span class="enhance-num">03</span>Email / API-based auto-trigger on new project creation</li>
+        <li><span class="enhance-num">04</span>Logging and audit trail system for tracking every operation</li>
+        <li><span class="enhance-num">05</span>Error notification and retry mechanism</li>
+      </ul>
+
+    </div><!-- /cs-right -->
+  </div><!-- /cs-body -->
+
+  <!-- BOTTOM ROW -->
+  <div class="cs-nav-row">
+    <a class="detail-back" href="../pages/works.html" style="padding:0;">&#8249; Back to Works</a>
+    <div style="display:flex;gap:24px;align-items:center;">
+      <a href="lab.html" style="font-family:var(--mono);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--fg-dim);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='var(--fg)'" onmouseout="this.style.color='var(--fg-dim)'">Read Article on Medium →</a>
+    </div>
+  </div>
+
+</div>
+<script src="../js/main.js"></script>
+</body>
+</html>
